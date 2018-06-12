@@ -1,3 +1,6 @@
-import {NancoinGenesisBlock} from './nancoin-genesis-block'
+import {Blockchain} from "./blockchain";
+import {Block} from "./block";
 
-console.log(new NancoinGenesisBlock);
+let myBlockchain = new Blockchain();
+
+myBlockchain.addBlock()
