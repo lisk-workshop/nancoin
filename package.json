@@ -1,0 +1,29 @@
+{
+  "name": "nancoin",
+  "version": "1.0.0",
+  "description": "Javascript implementation of a Blockchain with a Cryptocurrency called nancoin",
+  "main": "dist/index.js",
+  "dependencies": {
+    "@types/node": "^10.3.2"
+  },
+  "devDependencies": {
+    "typescript": "^2.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lisk-workshop/nancoin.git"
+  },
+  "keywords": [
+    "Blockchain",
+    "Javascript"
+  ],
+  "author": "wyattbarnes@pm.me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lisk-workshop/nancoin/issues"
+  },
+  "homepage": "https://github.com/lisk-workshop/nancoin#readme"
+}
