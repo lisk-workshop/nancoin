@@ -21,17 +21,13 @@ export class Block {
         return this._hash;
     }
 
-    private readonly _index: number;
-    private readonly _timestamp: number;
-    private readonly _data: string;
-    private readonly _previous_hash: string;
     private readonly _hash: string;
 
-    constructor(index: number, timestamp: number, data: string, previous_hash: string) {
-        this._index = index;
-        this._timestamp = timestamp;
-        this._data = data;
-        this._previous_hash = previous_hash;
+    constructor(
+        private readonly _index: number,
+        private readonly _timestamp: number,
+        private readonly _data: string,
+        private readonly _previous_hash: string) {
         this._hash = this.hash_block();
     }
 
