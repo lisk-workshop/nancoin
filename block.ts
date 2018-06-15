@@ -1,23 +1,23 @@
 import * as crypto from 'crypto'
 
 export class Block {
-    protected get index(): number {
+    public get index(): number {
         return this._index;
     }
 
-    protected get timestamp(): number {
+    public get timestamp(): number {
         return this._timestamp;
     }
 
-    protected get data(): string {
+    public get data(): string {
         return this._data;
     }
 
-    protected get previous_hash(): string {
+    public get previous_hash(): string {
         return this._previous_hash;
     }
 
-    protected get hash(): string {
+    public get hash(): string {
         return this._hash;
     }
 
