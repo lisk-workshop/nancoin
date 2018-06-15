@@ -1,20 +1,6 @@
 import * as crypto from 'crypto'
 
 export class Block {
-    private readonly _index: number;
-    private readonly _timestamp: number;
-    private readonly _data: string;
-    private readonly _previous_hash: string;
-    private readonly _hash: string;
-
-    constructor(index: number, timestamp: number, data: string, previous_hash: string) {
-        this._index = index;
-        this._timestamp = timestamp;
-        this._data = data;
-        this._previous_hash = previous_hash;
-        this._hash = this.hash_block();
-    }
-
     get index(): number {
         return this._index;
     }
@@ -33,6 +19,20 @@ export class Block {
 
     get hash(): string {
         return this._hash;
+    }
+
+    private readonly _index: number;
+    private readonly _timestamp: number;
+    private readonly _data: string;
+    private readonly _previous_hash: string;
+    private readonly _hash: string;
+
+    constructor(index: number, timestamp: number, data: string, previous_hash: string) {
+        this._index = index;
+        this._timestamp = timestamp;
+        this._data = data;
+        this._previous_hash = previous_hash;
+        this._hash = this.hash_block();
     }
 
     hash_block(): string {

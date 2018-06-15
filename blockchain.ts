@@ -3,35 +3,48 @@ import {GenesisBlock} from "./genesis-block";
 import {NextBlock} from "./next-block";
 
 export class Blockchain {
-    private _blockchain: (GenesisBlock|Block)[] = [];
-
-    constructor() {
-        this._blockchain.push(GenesisBlock);
-    }
-
     get blockchain(): (GenesisBlock | Block)[] {
         return this._blockchain;
     }
 
-    generateBlock(data: string): Block {
-        return new NextBlock(this.blockchain[0], data);
+    get nextBlock(): Block {
+        return this._nextBlock;
     }
 
-    addBlock(newBlock: Block) {
-        this.blockchain.push(newBlock);
+    set nextBlock(value: Block) {
+        this._nextBlock = value;
+    }
 
-        if(this.blockWasAdded(newBlock)) {
-            console.log(`Block #${newBlock.index} was successfully added!`);
+    private _blockchain: Block[] = [];
+    private _nextBlock: Block;
+
+    constructor() {
+        this._nextBlock = new GenesisBlock();
+
+        this.addNextBlock(this._nextBlock);
+    }
+
+    public generateNextBlock(data: string): Block {
+        return new NextBlock(this.blockchain[this.blockchain.length - 1], data);
+    }
+
+    public addNextBlock(block: Block): void {
+        this.nextBlock = block;
+
+        this.blockchain.push(this.nextBlock);
+
+        if(this.checkBlockWasAdded()) {
+            console.log(`Block #${this.nextBlock.index} was successfully added!`);
         } else {
-            console.log(`Something went wrong when adding Block #${newBlock.index}`);
+            console.log(`Something went wrong when adding Block #${this.nextBlock.index}`);
         }
     }
 
-    blockWasAdded(newBlock: Block): boolean {
-        return this.blockchain.indexOf(newBlock) !== -1;
+    private checkBlockWasAdded(): boolean {
+        return this.blockchain.indexOf(this.nextBlock) !== -1;
     }
 
-    logChain(): string {
-        return this.blockchain.toString();
+    public logChain(): void {
+        console.log(JSON.stringify(this.blockchain));
     }
 }

@@ -1,11 +1,13 @@
 import {Block} from "./block";
+import {GenesisBlock} from "./genesis-block";
 
-export class NextBlock {
-    constructor(last_block: Block, data: string) {
-        return new Block(
-            last_block.index + 1,
+export class NextBlock extends Block {
+    constructor(lastBlock: Block, data: string) {
+        super(
+            lastBlock.index + 1,
             new Date().getTime(),
             data,
-            last_block.hash);
+            lastBlock.hash
+        );
     }
 }
