@@ -1,5 +1,4 @@
 import {Block} from "./block";
-import {GenesisBlock} from "./genesis-block";
 
 export class NextBlock extends Block {
     constructor(lastBlock: Block, data: string) {
