@@ -1,6 +1,6 @@
 import * as crypto from 'crypto'
 
-export class Block {
+export abstract class Block {
     public get index(): number {
         return this._index;
     }
