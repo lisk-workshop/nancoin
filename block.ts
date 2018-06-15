@@ -1,23 +1,23 @@
 import * as crypto from 'crypto'
 
 export class Block {
-    get index(): number {
+    protected get index(): number {
         return this._index;
     }
 
-    get timestamp(): number {
+    protected get timestamp(): number {
         return this._timestamp;
     }
 
-    get data(): string {
+    protected get data(): string {
         return this._data;
     }
 
-    get previous_hash(): string {
+    protected get previous_hash(): string {
         return this._previous_hash;
     }
 
-    get hash(): string {
+    protected get hash(): string {
         return this._hash;
     }
 
@@ -31,7 +31,7 @@ export class Block {
         this._hash = this.hash_block();
     }
 
-    hash_block(): string {
+    private hash_block(): string {
         const sha = crypto.createHash('sha256');
 
         sha.update(this._index +
