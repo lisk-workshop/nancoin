@@ -3,15 +3,15 @@ import {GenesisBlock} from "./genesis-block";
 import {NextBlock} from "./next-block";
 
 export class Blockchain {
-    get blockchain(): Block[] {
+    private get blockchain(): Block[] {
         return this._blockchain;
     }
 
-    get nextBlock(): Block {
+    private get nextBlock(): Block {
         return this._nextBlock;
     }
 
-    set nextBlock(value: Block) {
+    private set nextBlock(value: Block) {
         this._nextBlock = value;
     }
 
