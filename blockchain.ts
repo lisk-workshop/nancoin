@@ -3,7 +3,7 @@ import {GenesisBlock} from "./genesis-block";
 import {NextBlock} from "./next-block";
 
 export class Blockchain {
-    get blockchain(): (GenesisBlock | Block)[] {
+    get blockchain(): Block[] {
         return this._blockchain;
     }
 
