@@ -16,12 +16,13 @@ export class Blockchain {
     }
 
     private _blockchain: Block[] = [];
-    private _nextBlock: Block;
+
+    // _nextblock will NOT be able to be null, as the constructor
+    // calls the addNextBlock method which sets _nextblock
+    private _nextBlock!: Block;
 
     constructor() {
-        this._nextBlock = new GenesisBlock();
-
-        this.addNextBlock(this._nextBlock);
+        this.addNextBlock(new GenesisBlock());
     }
 
     public generateNextBlock(data: string): Block {
