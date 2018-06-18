@@ -7,3 +7,5 @@ console.log(JSON.stringify(myFirstBlockchain.getBlockchain()));
 myFirstBlockchain.addNextBlockToChain('Block after Genesis Block');
 
 console.log(JSON.stringify(myFirstBlockchain.getBlockchain()));
+
+console.log(myFirstBlockchain.getBlockByBlockNumber(1));

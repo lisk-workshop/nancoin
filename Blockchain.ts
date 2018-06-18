@@ -1,4 +1,3 @@
-import * as _ from "lodash";
 import {Block} from "./Block";
 import {GenesisBlock} from "./GenesisBlock";
 import {NextBlock} from "./NextBlock";
@@ -37,12 +36,9 @@ export class Blockchain {
         return this.getBlockchain()[this.getBlockchain().length - 1];
     }
 
-    getBlockByBlockNumber(blockNumber: number): undefined | Block {
-        const foundBlock = _.find(
-            this.blockchainArray,
-                block => block.blockNumber === blockNumber
-        );
+    getBlockByBlockNumber(blockNumber: number): Block | undefined {
+        const foundBlock = this.blockchainArray.filter(block => block.blockNumber === blockNumber);
 
-        return _.isEmpty(foundBlock) ? undefined : foundBlock;
+        return foundBlock.length === 0 ? undefined : foundBlock[0];
     }
 }
