@@ -1,10 +1,11 @@
-import {Blockchain} from "./blockchain";
-import {Block} from "./block";
+import {Blockchain} from "./Blockchain";
 
-let myBlockchain: Blockchain = new Blockchain();
+const myFirstBlockchain: Blockchain = Blockchain.createBlockchain();
 
-let myNextBlock: Block = myBlockchain.generateNextBlock('This is the first block after the Genesis Block!');
+console.log(JSON.stringify(myFirstBlockchain.getBlockchain()));
 
-myBlockchain.addNextBlock(myNextBlock);
+myFirstBlockchain.addNextBlockToChain('Block after Genesis Block');
 
-myBlockchain.logChain();
+console.log(JSON.stringify(myFirstBlockchain.getBlockchain()));
+
+console.log(myFirstBlockchain.getBlockByBlockNumber(1));
