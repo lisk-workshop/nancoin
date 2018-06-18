@@ -21,16 +21,16 @@ export class Block {
         return this._hash;
     }
 
+    private readonly _timestamp: number;
     private readonly _hash: string;
 
     protected constructor(
         private readonly _blockNumber: number,
-        private readonly _timestamp: number,
         private readonly _data: string,
         private readonly _previous_hash: string
     ) {
         this._blockNumber = _blockNumber;
-        this._timestamp = _timestamp;
+        this._timestamp = new Date().getTime();
         this._data = _data;
         this._previous_hash = _previous_hash;
         this._hash = this.hashBlock();
